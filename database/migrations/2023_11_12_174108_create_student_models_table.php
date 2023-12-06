@@ -23,10 +23,11 @@ return new class extends Migration
             $table->float("height");
             $table->float("weight");
             $table->string("mobile_number");
+            $table->string("email");
             $table->date("date_of_joining");
             $table->enum('gender', ['Male', 'Female','other']);
-            //unique() is used to create uniue id also go to app/models/modelname.php
-            $table->string('s_code')->unique();
+            $table->string('slot_id');
+            $table->string('s_code');
             $table->timestamps();
         });
     }

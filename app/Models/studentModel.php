@@ -13,10 +13,10 @@ class studentModel extends Model
     protected static function boot()
     {
         parent::boot();
-        //function to create unique id. in fillable the column name "s_code" has to be written
-        static::creating(function ($student) {
-            $student->s_code = 'st' . uniqid();
-        });
+        // //function to create unique id. in fillable the column name "s_code" has to be written
+        // static::creating(function ($student) {
+        //     $student->s_code = 'st' . uniqid();
+        // });
     }
 
 }
