@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\admissionController;
 use App\Http\Controllers\slotController;
+use App\Http\Controllers\studentController;
+use App\Http\Controllers\attendanceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +42,12 @@ Route::prefix('slots')->group(function () {
     Route::get('slots-make',[slotController::class, 'newSlotPage'])->name("make.slots");
     Route::post('slot-create',[slotController::class, 'createBatch'])->name("create");
 
+});
+Route::get('/view/batch/{id}',[slotController::class, 'viewBatch']);
+Route::get('/student/details/{id}',[studentController::class, 'studentDetails']);
+
+Route::prefix('attendance')->group(function (){
+    Route::get('take-attendance', [attendanceController::class, 'viewAttendancepage'])->name("take.attendance");
 });
 
 

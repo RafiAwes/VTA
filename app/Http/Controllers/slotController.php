@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\studentModel;
+use App\Models\student;
 use App\Models\slotModel;
 use Carbon\Carbon;
 
@@ -13,8 +13,9 @@ class slotController extends Controller
 {
     public function showSlots(){
         $batches = slotModel::all();
+        $count_student = student::where('slot_id','slot_models.id')->count();
 
-        return view('slots.slotHomePage',['batches' => $batches]);
+        return view('slots.slotHomePage',['batches' => $batches, 'count_student'=>$count_student]);
     }
     public function newSlotPage(){
         return view('slots.makeSlots');
@@ -48,5 +49,13 @@ class slotController extends Controller
         ]);
 
         return redirect()->route('view.slots');
+    }
+
+    public function viewBatch($id){
+
+        $batch = slotModel::where('id',$id)->first();
+        $students = student::where('slot_id',$id)->orderBy('id','asc')->paginate(10);
+        $count_student = student::where('slot_id',$id)->count();
+        return view('slots.batchPage',compact('batch','students','count_student'));
     }
 }

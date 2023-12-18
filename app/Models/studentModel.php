@@ -10,6 +10,7 @@ class studentModel extends Model
     use HasFactory;
 
     protected $fillable = ['s_code','student_name','address'];
+    protected $table = 'studentModel';
     protected static function boot()
     {
         parent::boot();

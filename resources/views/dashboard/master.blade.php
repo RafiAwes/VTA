@@ -49,7 +49,8 @@
 				<ul id="side-main-menu" class="side-menu list-unstyled">
 					<li><a href="{{route('dashboard')}}"> <i class="icon-home"></i>Home </a></li>
 					<li><a href="{{route('admit.form')}}"> <i class="icon-form"></i>Admission </a></li>
-                    <li><a href="{{route('view.slots')}}"> <i class="icon-grid"></i>Slots </a></li>
+                    <li><a href="{{route('view.slots')}}"> <i class="icon-grid"></i>Batches </a></li>
+                    <li><a href="{{route('take.attendance')}}"> <i class="icon-grid"></i>Atendance </a></li>
 					<li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
 					<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
 						<ul id="exampledropdownDropdown" class="collapse list-unstyled ">
@@ -61,16 +62,6 @@
 					<li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li>
 				</ul>
 			</div>
-			{{-- <div class="admin-menu">
-				<h5 class="sidenav-heading">Second menu</h5>
-				<ul id="side-admin-menu" class="side-menu list-unstyled">
-					<li> <a href="#"> <i class="icon-screen"> </i>Demo</a></li>
-					<li> <a href="#"> <i class="icon-flask"> </i>Demo
-							<div class="badge badge-info">Special</div></a></li>
-					<li> <a href=""> <i class="icon-flask"> </i>Demo</a></li>
-					<li> <a href=""> <i class="icon-picture"> </i>Demo</a></li>
-				</ul>
-			</div> --}}
 		</div>
 	</nav>
 	<div class="page">

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\studentModel;
+use App\Models\student;
 use App\Models\slotModel;
 use Carbon\Carbon;
 use Intervention\Image\Facades\Image;
@@ -35,14 +35,14 @@ class admissionController extends Controller
             $uniqueId = 'st' . $currentYear . $randomPart;
 
             // Check if the generated ID already exists
-            while (studentModel::where('s_code', $uniqueId)->exists()) {
+            while (student::where('s_code', $uniqueId)->exists()) {
                 $randomPart = str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
                 $uniqueId = 'st' . $currentYear . $randomPart;
             }
 
             $batches = slotModel::all();
 
-            studentModel::insert([
+            student::insert([
                 "student_name" => $request->student_name,
                 "father_name" => $request->father_name,
                 "mother_name" => $request->mother_name,
