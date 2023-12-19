@@ -55,34 +55,32 @@
    </div>
    {{-- Student list of he batch --}}
    <div class="card mt-5">
-    {{-- <div class="card-header text-white text-center bg-warning rounded">
-        <h2 class="display-4 font-weight-bolder">Student list</h2>
-    </div> --}}
-    <div class="card-body rounded">
-        <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Sl</th>
-                <th scope="col">Name</th>
-                <th scope="col">Student ID</th>
-                <th scope="col">Email</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-            @foreach ($students as $index=>$student)
+    
+        <div class="card-body rounded">
+            <table class="table">
+                <thead class="thead-dark">
                 <tr>
-                    <td scope="row">{{ $loop->index+1 }}</td>
-                    <td>{{$student->student_name}}</td>
-                    <td>{{$student->s_code}}</td>
-                    <td>{{$student->email}}</td>
-                    <td><a href="{{url('/student/details')}}/{{$student->id}}" class="btn btn-warning btn-sm rounded"><i class="fa fa-edit fa-alt"></i></a></td>
+                    <th scope="col">Sl</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Student ID</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
                 </tr>
-            @endforeach
-            </tbody>
-          </table>
+                </thead>
+                <tbody>
+                @foreach ($students as $index=>$student)
+                    <tr>
+                        <td scope="row">{{ $loop->index+1 }}</td>
+                        <td>{{$student->student_name}}</td>
+                        <td>{{$student->s_code}}</td>
+                        <td>{{$student->email}}</td>
+                        <td><a href="{{url('/student/details')}}/{{$student->id}}" class="btn btn-warning btn-sm rounded"><i class="fa fa-edit fa-alt"></i></a></td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
-   </div>
 </div>
 
 @endsection

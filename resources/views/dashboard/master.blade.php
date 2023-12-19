@@ -51,15 +51,15 @@
 					<li><a href="{{route('admit.form')}}"> <i class="icon-form"></i>Admission </a></li>
                     <li><a href="{{route('view.slots')}}"> <i class="icon-grid"></i>Batches </a></li>
                     <li><a href="{{route('take.attendance')}}"> <i class="icon-grid"></i>Atendance </a></li>
-					<li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
-					<li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
+					<li><a href="{{route('take.attendance')}}"> <i class="fa fa-bar-chart"></i>View attendants</a></li>
+					{{-- <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
 						<ul id="exampledropdownDropdown" class="collapse list-unstyled ">
 							<li><a href="#">Page</a></li>
 							<li><a href="#">Page</a></li>
 							<li><a href="#">Page</a></li>
 						</ul>
 					</li>
-					<li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li>
+					<li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li> --}}
 				</ul>
 			</div>
 		</div>

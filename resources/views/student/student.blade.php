@@ -66,6 +66,39 @@
             </div>
         </div>
 
+        <div class="card mt-3">
+            <div class="card-header bg-primary text-white text-center font-weight-bolder rounded">
+                <h2 class="display-4">Student Details</h2>
+            </div>
+            <div class="card mt-5">
+                <div class="card-body rounded">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            {{-- <th scope="col">Sl</th> --}}
+                            <th scope="col">Name</th>
+                            <th scope="col">Student ID</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($attendDays as $day)
+                            <tr>
+                                {{-- <td scope="row">{{ $loop->index+1 }}</td> --}}
+                                <td>{{$day->student_name}}</td>
+                                <td>{{$day->s_code}}</td>
+                                <td>{{$day->email}}</td>
+                                <td>{{$day->submission_date}}</td>
+                                
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 

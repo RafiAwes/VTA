@@ -48,9 +48,9 @@
 				<h5 class="sidenav-heading">Main</h5>
 				<ul id="side-main-menu" class="side-menu list-unstyled">
 					<li><a href="{{route('dashboard')}}"> <i class="icon-home"></i>Home </a></li>
-                    <li><a href="{{route('view.slots')}}"> <i class="icon-grid"></i>Batches</a></li>
-                    <li><a href="{{route('make.slots')}}"> <i class="icon-form"></i>Make Batches </a></li>
-					<li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
+                    {{-- <li><a href="{{route('view.slots')}}"> <i class="icon-grid"></i>Batches</a></li>
+                    <li><a href="{{route('make.slots')}}"> <i class="icon-form"></i>Make Batches </a></li> --}}
+					<li><a href="{{route('take.attendance')}}"> <i class="fa fa-bar-chart"></i>View attendants</a></li>
 					{{-- <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
 						<ul id="exampledropdownDropdown" class="collapse list-unstyled ">
 							<li><a href="#">Page</a></li>

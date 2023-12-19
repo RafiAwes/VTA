@@ -47,7 +47,10 @@ Route::get('/view/batch/{id}',[slotController::class, 'viewBatch']);
 Route::get('/student/details/{id}',[studentController::class, 'studentDetails']);
 
 Route::prefix('attendance')->group(function (){
-    Route::get('take-attendance', [attendanceController::class, 'viewAttendancepage'])->name("take.attendance");
+    Route::get('batch-attendance', [attendanceController::class, 'viewBatchPage'])->name("take.attendance");
+    Route::get('attendance-page/{id}', [attendanceController::class,'attendancePage'])->name("take-attendance");
+    Route::post('submit/attendance', [attendanceController::class,'saveAttendance'])->name("submit-attendance");
+    Route::get('view/attended-students/{id}',[attendanceController::class,'viewAttendStudent'])->name("viewAttendants");
 });
 
 
