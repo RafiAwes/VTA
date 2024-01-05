@@ -55,7 +55,7 @@
    </div>
    {{-- Student list of he batch --}}
    <div class="card mt-5">
-    
+
         <div class="card-body rounded">
             <table class="table">
                 <thead class="thead-dark">
@@ -64,7 +64,8 @@
                     <th scope="col">Name</th>
                     <th scope="col">Student ID</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Drop</th>
+                    <th scope="col">Details</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -74,6 +75,7 @@
                         <td>{{$student->student_name}}</td>
                         <td>{{$student->s_code}}</td>
                         <td>{{$student->email}}</td>
+                        <td><a href="{{url('/students/drop-students/')}}/{{$student->id}}" class="btn btn-danger btn-sm rounded"><i class="fas fa-trash"></i></a></td>
                         <td><a href="{{url('/student/details')}}/{{$student->id}}" class="btn btn-warning btn-sm rounded"><i class="fa fa-edit fa-alt"></i></a></td>
                     </tr>
                 @endforeach

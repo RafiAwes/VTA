@@ -55,6 +55,17 @@
                                         <div>Batch: <h3>{{$student->batch_name}}</h3></div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div>classes Done: <h3>{{$student->attended_class}}</h3></div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div>Status: <h3>{{$student->status}}</h3></div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div>Charge: <h3>{{$student->fees}}</h3></div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="col-lg-3">
@@ -90,7 +101,7 @@
                                 <td>{{$day->s_code}}</td>
                                 <td>{{$day->email}}</td>
                                 <td>{{$day->submission_date}}</td>
-                                
+
                             </tr>
                         @endforeach
                         </tbody>

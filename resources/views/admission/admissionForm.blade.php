@@ -38,39 +38,57 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="date_of_birth">Date of Birth</label>
-                                            <input type="date" name="date_of_birth" class="form-control rounded" id="date_of_birth">
+                                            <input type="date" name="date_of_birth" class="form-control rounded" id="date_of_birth" required>
                                         </div>
 
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label for="height">Height:</label>
-                                            <input type="number" name="height" class="form-control rounded" step="0.01" id="height">
+                                            <input type="number" name="height" class="form-control rounded" step="0.01" id="height" required>
                                         </div>
                                         <div class="col-lg-6">
                                             <label for="weight">Weight:</label>
-                                            <input type="number" name="weight" class="form-control rounded" id="weight">
+                                            <input type="number" name="weight" class="form-control rounded" id="weight" required>
                                         </div>
 
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <label for="mobile">Phone No:</label>
-                                            <input type="text" name="mobile_number" class="form-control rounded" id="number" placeholder="Enter your Phone number">
+                                            <input type="text" name="mobile_number" class="form-control rounded" id="number" placeholder="Enter your Phone number" required>
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="email">Email</label>
-                                            <input type="email" name="email" class="form-control rounded" id="email" placeholder="Enter your mobile number">
+                                            <input type="email" name="email" class="form-control rounded" id="email" placeholder="Enter your mobile number" required>
                                         </div>
                                         <div class="col-lg-4">
                                             <label for="gender">Gender</label>
                                             {{-- <input type="text" class="form-control rounded" id="gender" placeholder="Enter your mobile number"> --}}
-                                            <select class="form-control" name="gender" id="gender">
+                                            <select class="form-control" name="gender" id="gender" required>
                                                 <option value="">Select One</option>
                                                 <option value="male">Male</option>
                                                 <option value="female">Female</option>
                                                 <option value="custom">Custom</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <label for="admissionFees">Admission Fees:</label>
+                                            <input type="number" class="form-control rounded" id="admissionFees" name="admissionFees" oninput="updatePayableMoney()" required>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label for="realFees">Real Fees:</label>
+                                            <input type="number" class="form-control rounded" id="realFees" name="realFees" oninput="updatePayableMoney()" required>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label for="discount">Discount:</label>
+                                            <input type="number" class="form-control rounded" id="discount" name="discount" oninput="updatePayableMoney()" required>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <label for="payableFees">Payable Fees:</label>
+                                            <input type="number" class="form-control rounded" id="payableFees" name="payableFees" readonly>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -108,5 +126,17 @@
         </div>
     </div>
 </div>
+<script>
+    function updatePayableMoney() {
+        var admissionFees = parseInt(document.getElementById('admissionFees').value) || 0;
+        var realFees = parseInt(document.getElementById('realFees').value) || 0;
+        var discount = parseInt(document.getElementById('discount').value) || 0;
+
+        var payableFees = (admissionFees + realFees) - discount;
+
+        document.getElementById('payableFees').value = payableFees;
+    }
+</script>
+
 
 @endsection

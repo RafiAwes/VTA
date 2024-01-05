@@ -4,7 +4,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\admissionController;
 use App\Http\Controllers\slotController;
 use App\Http\Controllers\studentController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\attendanceController;
+use App\Http\Controllers\dashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,13 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[dashboardController::class,'dashboard']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',[dashboardController::class,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -43,8 +41,13 @@ Route::prefix('slots')->group(function () {
     Route::post('slot-create',[slotController::class, 'createBatch'])->name("create");
 
 });
-Route::get('/view/batch/{id}',[slotController::class, 'viewBatch']);
+Route::get('/view/batch/{id}',[slotController::class, 'viewBatch'])->name("view-batch");
 Route::get('/student/details/{id}',[studentController::class, 'studentDetails']);
+Route::get('/students/list',[studentController::class, 'students']);
+Route::get('/students/list/download',[ExportController::class, 'export']);
+Route::get('/students/view/completed-students',[studentController::class, 'showCompletedStudents']);
+Route::get('/students/drop-students/{id}',[studentController::class, 'dropStudent']);
+Route::get('/students/view/dropped-students',[studentController::class, 'showDroppedStudents']);
 
 Route::prefix('attendance')->group(function (){
     Route::get('batch-attendance', [attendanceController::class, 'viewBatchPage'])->name("take.attendance");

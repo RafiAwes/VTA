@@ -26,6 +26,7 @@
 	<link rel="stylesheet" href="{{url("/")}}/frontend_assets/css/custom.css">
 	<!-- Favicon-->
 	<link rel="shortcut icon" href="{{url("/")}}/frontend_assets/img/favicon.ico">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
 
 </head>
@@ -49,9 +50,12 @@
 				<ul id="side-main-menu" class="side-menu list-unstyled">
 					<li><a href="{{route('dashboard')}}"> <i class="icon-home"></i>Home </a></li>
 					<li><a href="{{route('admit.form')}}"> <i class="icon-form"></i>Admission </a></li>
+					<li><a href="/students/list"> <i class="icon-form"></i>Students</a></li>
                     <li><a href="{{route('view.slots')}}"> <i class="icon-grid"></i>Batches </a></li>
                     <li><a href="{{route('take.attendance')}}"> <i class="icon-grid"></i>Atendance </a></li>
 					<li><a href="{{route('take.attendance')}}"> <i class="fa fa-bar-chart"></i>View attendants</a></li>
+					<li><a href="/students/view/completed-students"> <i class="fas fa-user-graduate"></i>Completed Students</a></li>
+					<li><a href="/students/view/dropped-students"> <i class="fas fa-times"></i>Dropped Students</a></li>
 					{{-- <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
 						<ul id="exampledropdownDropdown" class="collapse list-unstyled ">
 							<li><a href="#">Page</a></li>
@@ -75,7 +79,7 @@
 							</a></div>
 						<ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
 							<!-- Notifications dropdown-->
-							<li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning">12</span></a>
+							{{-- <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning">12</span></a>
 								<ul aria-labelledby="notifications" class="dropdown-menu">
 									<li><a rel="nofollow" href="#" class="dropdown-item">
 											<div class="notification d-flex justify-content-between">
@@ -103,7 +107,7 @@
 										</a></li>
 									<li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-bell"></i>view all notifications </strong></a></li>
 								</ul>
-							</li>
+							</li> --}}
 							<!-- Messages dropdown-->
 							{{-- <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope"></i><span class="badge badge-info">10</span></a>
 								<ul aria-labelledby="notifications" class="dropdown-menu">
@@ -136,7 +140,10 @@
 								</ul>
 							</li> --}}
 							<!-- Log out-->
-							<li class="nav-item"><a href="login.html" class="nav-link logout"> <span class="d-none d-sm-inline-block">Logout</span><i class="fa fa-sign-out"></i></a></li>
+							<form action="{{route('logout')}}" method="POST">
+                                @csrf
+                                <input type="submit" class="btn btn-secondary text-white" value="logout">
+                            </form>
 						</ul>
 					</div>
 				</div>
@@ -168,6 +175,9 @@
 	<!-- Main File-->
 	<script src="{{url("/")}}/frontend_assets/js/front.js"></script>
 	<script src="https://kit.fontawesome.com/c218529370.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
 </body>
 
 </html>

@@ -40,6 +40,9 @@ class admissionController extends Controller
                 $uniqueId = 'st' . $currentYear . $randomPart;
             }
 
+
+            $totalFees = $request->payableFees - $request->admissionFees;
+
             $batches = slotModel::all();
 
             student::insert([
@@ -57,6 +60,9 @@ class admissionController extends Controller
                 "gender" => $request->gender,
                 "s_code" => $uniqueId,
                 "slot_id" => $request->batch_id,
+                "attended_class" => 0,
+                "fees" => $totalFees,
+                "status" => 'learning',
                 "created_at" => Carbon::now(),
             ]);
 

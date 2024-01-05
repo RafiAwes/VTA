@@ -39,28 +39,32 @@
                                         <div class="col-lg-4">
                                             <label for="Days">Days of training</label>
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" value="saturday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" value="Saturday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
                                                 <label class="form-check-label" for="flexSwitchCheckDefault">Saturday</label>
                                             </div>
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" value="sunday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" value="Sunday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
                                                 <label class="form-check-label" for="flexSwitchCheckDefault">Sunday</label>
                                             </div>
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" value="monday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" value="Monday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
                                                 <label class="form-check-label" for="flexSwitchCheckDefault">Monday</label>
                                             </div>
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" value="tuesday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" value="Tuesday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
                                                 <label class="form-check-label" for="flexSwitchCheckDefault">Tuesday</label>
                                             </div>
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" value="wednesday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" value="Wednesday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
                                                 <label class="form-check-label" for="flexSwitchCheckDefault">Wednesday</label>
                                             </div>
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" value="thursday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
+                                                <input class="form-check-input" value="Thursday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
                                                 <label class="form-check-label" for="flexSwitchCheckDefault">Thursday</label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" value="Friday" name="days[]" type="checkbox" id="flexSwitchCheckDefault">
+                                                <label class="form-check-label" for="flexSwitchCheckDefault">Friday</label>
                                             </div>
 
                                         </div>

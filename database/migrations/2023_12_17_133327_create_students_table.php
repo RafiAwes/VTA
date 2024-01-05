@@ -27,6 +27,9 @@ return new class extends Migration
             $table->enum('gender', ['Male', 'Female','other']);
             $table->string('slot_id');
             $table->string('s_code');
+            $table->integer('attended_class');
+            $table->integer('fees');
+            $table->string('status');
             $table->timestamps();
         });
     }
