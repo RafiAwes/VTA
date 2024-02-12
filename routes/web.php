@@ -7,6 +7,7 @@ use App\Http\Controllers\studentController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\attendanceController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\financeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,6 +56,19 @@ Route::prefix('attendance')->group(function (){
     Route::post('submit/attendance', [attendanceController::class,'saveAttendance'])->name("submit-attendance");
     Route::get('view/attended-students/{id}',[attendanceController::class,'viewAttendStudent'])->name("viewAttendants");
 });
+
+Route::prefix('finance')->group(function (){
+    Route::get('finance-dashboard', [financeController::class, 'viewFinanceDashboard'])->name("finance-dashboard");
+    Route::get('monthly-fees', [financeController::class, 'viewPaymentPage'])->name("monthly-fees");
+    Route::post('pay/monthly/fees', [financeController::class, 'submitMonthlyFee'])->name("pay-monthly-fees");
+    Route::post('pay/tournament/fees', [financeController::class, 'submitTournamentFee'])->name("pay-tournament-fees");
+    Route::post('pay/dress/fees', [financeController::class, 'submitDressFee'])->name("pay-dress-fees");
+    Route::post('pay/belt test/fees', [financeController::class, 'submitBeltTestFee'])->name("pay-belttest-fees");
+});
+
+// dropdown dependencies
+
+Route::post('api/students', [financeController::class, 'fetchStudents']);
 
 
 require __DIR__.'/auth.php';

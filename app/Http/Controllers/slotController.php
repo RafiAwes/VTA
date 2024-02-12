@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\student;
-use App\Models\slotModel;
+use App\Models\batch;
 use Carbon\Carbon;
 use Toastr;
 
 class slotController extends Controller
 {
     public function showSlots(){
-        $batches = slotModel::all();
+        $batches = batch::all();
         $count_student = student::where('slot_id','slot_models.id')->count();
 
         return view('slots.slotHomePage',['batches' => $batches, 'count_student'=>$count_student]);
@@ -34,14 +34,14 @@ class slotController extends Controller
 
         $multichecks = $request->input('days');
         $days = implode(',', $multichecks);
-        $batch = slotModel::where('class_time',$request->class_time)->exists();
-        $d = slotModel::where('days',$days)->exists();
+        $batch = batch::where('class_time',$request->class_time)->exists();
+        $d = batch::where('days',$days)->exists();
         if($d && $batch){
             Toastr::error('Ooops', 'Time and days already exists', ["positionClass" => "toast-top-center"]);
             return redirect()->route('make.slots');
         }else{
-            slotModel::insert([
-                "batch_name" => $request->batch_name,
+            batch::insert([
+                "name" => $request->batch_name,
                 "total_classes" => $request->total_classes,
                 "starting_date" => $request->starting_date,
                 "number_of_students" => $request->numberOfStudents,
@@ -60,7 +60,7 @@ class slotController extends Controller
 
     public function viewBatch($id){
 
-        $batch = slotModel::where('id',$id)->first();
+        $batch = batch::where('id',$id)->first();
         $students = student::where('slot_id',$id)->where('status','learning')->orderBy('id','asc')->paginate(10);
         $count_student = student::where('slot_id',$id)->count();
         return view('slots.batchPage',compact('batch','students','count_student'));

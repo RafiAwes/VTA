@@ -185,6 +185,24 @@
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
     {!! Toastr::message() !!}
+    <script>
+        $(document).ready(function () {
+            $('#toggle-btn').on('click', function (e) {
+
+                e.preventDefault();
+
+                if ($(window).outerWidth() > 1194) {
+                    $('nav.side-navbar').toggleClass('shrink');
+                    $('.page').toggleClass('active');
+                } else {
+                    $('nav.side-navbar').toggleClass('show-sm');
+                    $('.page').toggleClass('active-sm');
+                }
+            });
+
+        });
+
+    </script>
 </body>
 
 </html>

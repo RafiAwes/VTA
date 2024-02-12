@@ -56,6 +56,7 @@
 					<li><a href="{{route('take.attendance')}}"> <i class="fa fa-bar-chart"></i>View attendants</a></li>
 					<li><a href="/students/view/completed-students"> <i class="fas fa-user-graduate"></i>Completed Students</a></li>
 					<li><a href="/students/view/dropped-students"> <i class="fas fa-times"></i>Dropped Students</a></li>
+					<li><a href="{{route('finance-dashboard')}}"> <i class="fas fa-usd"></i>Finance</a></li>
 					{{-- <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
 						<ul id="exampledropdownDropdown" class="collapse list-unstyled ">
 							<li><a href="#">Page</a></li>
@@ -178,6 +179,24 @@
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
     {!! Toastr::message() !!}
+    <script>
+        $(document).ready(function () {
+            $('#toggle-btn').on('click', function (e) {
+
+                e.preventDefault();
+
+                if ($(window).outerWidth() > 1194) {
+                    $('nav.side-navbar').toggleClass('shrink');
+                    $('.page').toggleClass('active');
+                } else {
+                    $('nav.side-navbar').toggleClass('show-sm');
+                    $('.page').toggleClass('active-sm');
+                }
+            });
+
+        });
+
+    </script>
 </body>
 
 </html>

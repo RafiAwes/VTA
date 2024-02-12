@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\student;
-use App\Models\slotModel;
+use App\Models\batch;
 use Carbon\Carbon;
 use Intervention\Image\Facades\Image;
 
@@ -14,7 +14,7 @@ class admissionController extends Controller
 {
     public function admitForm()
     {
-        $batches = slotModel::where('status','active')
+        $batches = batch::where('status','active')
         ->orderBy('id','asc')
         ->get();
 
@@ -43,7 +43,7 @@ class admissionController extends Controller
 
             $totalFees = $request->payableFees - $request->admissionFees;
 
-            $batches = slotModel::all();
+            $batches = batch::all();
 
             student::insert([
                 "student_name" => $request->student_name,

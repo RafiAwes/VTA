@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('slot_models', function (Blueprint $table) {
+        Schema::create('batches', function (Blueprint $table) {
             $table->id();
-            $table->string('batch_name');
+            $table->string('name');
             $table->integer('total_classes');
             $table->date('starting_date');
             $table->integer('number_of_students');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('slot_models');
+        Schema::dropIfExists('batches');
     }
 };

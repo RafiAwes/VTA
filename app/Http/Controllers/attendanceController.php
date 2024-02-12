@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\student;
 use App\Models\attendance;
-use App\Models\slotModel;
+use App\Models\batch;
 use Carbon\Carbon;
 use Toastr;
 
@@ -21,10 +21,10 @@ class attendanceController extends Controller
     public function attendancePage($id){
 
         $students = student::where('slot_id',$id)->orderBy('id','asc')->paginate(100);
-        $batch = slotModel::find($id);
+        $batch = batch::find($id);
         $batchDays = explode(',', $batch->days);
 
-        $batches = slotModel::all();
+        $batches = batch::all();
 
         $currentDay = date('l');
         // dd($currentDay);
@@ -65,7 +65,7 @@ class attendanceController extends Controller
 
     public function saveAttendance(Request $request){
         // finding the batch with batch id and decoding days
-        $batch = slotModel::find($request->batch_id);
+        $batch = batch::find($request->batch_id);
         $total_class = $batch->total_classes;
 
         // $slot = SlotModel::find($request->batch_id);

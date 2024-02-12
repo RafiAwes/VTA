@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\student;
-use App\Models\slotModel;
+use App\Models\batch;
 use App\Models\attendance;
 use Carbon\Carbon;
 use Toastr;
@@ -17,12 +17,12 @@ class studentController extends Controller
         // $student = studentModel::where('id',$id)->first();
 
         $student = DB::table('students')
-                    ->join('slot_models', 'slot_models.id', '=', 'students.slot_id')
+                    ->join('batches', 'batches.id', '=', 'students.slot_id')
                     ->where('students.id',$id)
-                    ->select('students.*', 'slot_models.batch_name')
+                    ->select('students.*', 'batches.name')
                     ->first();
-        $attendDays = Attendance::select('attendances.*', 'students.*','slot_models.*')
-                    ->join('slot_models', 'attendances.batch_id', '=', 'slot_models.id')
+        $attendDays = Attendance::select('attendances.*', 'students.*','batches.*')
+                    ->join('batches', 'attendances.batch_id', '=', 'batches.id')
                     ->join('students', 'attendances.student_id', '=', 'students.id')
                     ->where('student_id', $id)
                     ->get();
@@ -37,8 +37,8 @@ class studentController extends Controller
 
     public function students(){
         $students=DB::table('students')
-        ->join('slot_models', 'slot_models.id', '=', 'students.slot_id')
-        ->select('students.*', 'slot_models.batch_name')
+        ->join('batches', 'batches.id', '=', 'students.batch_id')
+        ->select('students.*', 'batches.name')
         ->get();
 
         return view('student.studentList',compact('students'));
@@ -56,8 +56,8 @@ class studentController extends Controller
 
     public function showDroppedStudents(){
         $students=DB::table('students')
-        ->join('slot_models', 'slot_models.id', '=', 'students.slot_id')
-        ->select('students.*', 'slot_models.batch_name')
+        ->join('batches', 'batches.id', '=', 'students.batch_id')
+        ->select('students.*', 'batches.name')
         ->where('students.status','dropped')
         ->get();
         // $students = student::where('status','Completed')->get();

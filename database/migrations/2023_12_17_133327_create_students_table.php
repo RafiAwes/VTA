@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string("student_name");
+            $table->string("name");
             $table->string("father_name");
             $table->string("mother_name");
             $table->string("image");
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string("email");
             $table->date("date_of_joining");
             $table->enum('gender', ['Male', 'Female','other']);
-            $table->string('slot_id');
+            $table->string('batch_id');
             $table->string('s_code');
             $table->integer('attended_class');
             $table->integer('fees');
